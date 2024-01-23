@@ -1,4 +1,4 @@
-# Clearing workspace
+# Cleaning workspace
 rm(list = ls())
 
 # Packages
