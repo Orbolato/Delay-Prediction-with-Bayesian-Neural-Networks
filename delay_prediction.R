@@ -3,11 +3,6 @@ rm(list = ls())
 
 # Packages
 library(lubridate)
-library(brnn)
-library(BayesFluxR)
-library(Julia)
-library(JuliaCall)
-library(devtools)
 
 # Functions
 min_date <- function(x, y){
@@ -167,53 +162,4 @@ for(i in 1:nrow(final_data_sbgr)){
 }
 
 # Exporting CSV
-# write.csv(final_data_sbgr, "C:/Users/lucas/Desktop/Doutorado/Dados/Paper Delay Prediction/final_data_sbgr.csv", row.names=FALSE)
-
-# Creating formula
-# formula <- colnames(final_data_sbgr)[ncol(final_data_sbgr)]
-# formula <- paste0(formula, ' ~ ')
-# formula <- paste0(formula, colnames(final_data_sbgr)[1])
-# for(i in 2:(ncol(final_data_sbgr)-1)){
-#   formula <- paste0(formula, ' + ')
-#   formula <- paste0(formula, colnames(final_data_sbgr)[i])
-# }
-# formula <- as.formula(formula)
-# print(formula)
-
-# Loading BayesFluxR
-# julia_setup(JULIA_HOME = "C:\\Users\\lucas\\AppData\\Local\\Programs\\Julia-1.9.3\\bin", verbose = TRUE, install = TRUE, force = FALSE, useRCall = TRUE)
-# BayesFluxR_setup()
-# BayesFluxR_setup(JULIA_HOME = "C:\\Users\\lucas\\AppData\\Local\\Programs\\Julia-1.9.3\\bin", pkg_check =  TRUE)
-
-# Network Architecture
-# net <- Chain(Dense(ncol(final_data_sbgr) - 1, 2*ncol(final_data_sbgr) - 1, 'identity'), Dense(2*ncol(final_data_sbgr) - 1, 1, 'identity'))
-
-# Likelihood
-# like <- likelihood.feedforward_normal(net, Gamma(2.0, 0.5))
-
-# Prior distribution
-# prior <- prior.gaussian(net, 0.5)
-
-# Initialization
-# init <- initialise.allsame(Normal(0, 0.5), like, prior)
-
-# Creating datasets
-# x <- as.matrix(subset(final_data_sbgr, select = -c(`sg_empresa_icao`,`sg_icao_origem`,`en_route_delay`)))
-# y <- as.numeric(final_data_sbgr$en_route_delay)
-# 
-# for(i in 1:ncol(x)){
-#   x[i,] <- as.numeric(x[i,])
-# }
-# 
-# x <- t(x)
-
-# x <- subset(final_data_sbgr, select = -c(`sg_empresa_icao`,`sg_icao_origem`,`en_route_delay`))
-# x <- t(x)
-# y <- final_data_sbgr$en_route_delay
-
-# Creating the model
-# bnn <- BNN(x, y, like, prior, init)
-
-# Sample from the BNN using Monte Carlo Markov Chains
-# sampler <- sampler.SGLD()
-# ch <- mcmc(bnn, 10, 1000, sampler)
+write.csv(final_data_sbgr, "C:/Users/lucas/Desktop/Doutorado/Dados/Paper Delay Prediction/final_data_sbgr.csv", row.names=FALSE)
